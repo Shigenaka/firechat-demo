@@ -35,7 +35,7 @@
 				<button ng-click="logOut()" class="btn btn-warning">Logout</button>
 			</div>
 	</header>
-
+	<h1>FireChat Demo</h1>
 	<div class="container">
 		<!-- Sign-in/sign-up form: show if userId isn't defined -->
 		<form name="myForm" ng-show="!userId" novalidate>
@@ -57,8 +57,8 @@
 
 			<!-- Submit buttons: should only be active if certain inputs are valid -->
 			<div class="form-group">
-				<button ng-click="signUp()" ng-disabled="myForm.$invalid" type="submit" class="btn btn-primary">Sign-up</button> 
-				<button ng-click="signIn()" ng-disabled="myForm.email.$invalid || myForm.password.$invalid" type="submit" class="btn btn-primary">Sign-in</button>
+				<button ng-click="signUp()" ng-disabled="myForm.$invalid" type="submit" class="btn btn-warning">Sign-up</button> 
+				<button ng-click="signIn()" ng-disabled="myForm.email.$invalid || myForm.password.$invalid" type="submit" class="btn btn-warning">Sign-in</button>
 			</div>
 		</form>
 
