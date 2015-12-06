@@ -11,7 +11,7 @@ myApp.controller('myCtrl', function($scope, $firebaseAuth, $firebaseArray, $fire
 		console.log(authData);
 		$scope.userId = authData.uid;
 		var chat = new FirechatUI(ref, document.getElementById('firechat-wrapper'));
-        chat.setUser(authData.uid, authData.password.email);
+        chat.setUser(authData.uid, authData.uid);
 	}
 
 	$scope.signUp = function() {
