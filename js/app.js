@@ -32,7 +32,7 @@ myApp.controller('myCtrl', function($scope, $firebaseAuth, $firebaseArray, $fire
 	}
 
 	$scope.logIn = function() {
-		return $scope.authObj.$authWithPassword({
+		$scope.authObj.$authWithPassword({
 			email: $scope.email,
 			password: $scope.password
 		}).then(function(authData) {
