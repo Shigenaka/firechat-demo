@@ -10,6 +10,7 @@ myApp.controller('myCtrl', function($scope, $firebaseAuth, $firebaseArray, $fire
 
 	//check to see if logged in already
 	if(authData) {
+		$scope.userId = authData.uid
 		console.log(authData);
 		var chat = new FirechatUI(ref, document.getElementById('firechat-wrapper'));
       	chat.setUser(authData.uid, authData.uid);
