@@ -20,15 +20,6 @@ myApp.controller('myCtrl', function($scope, $firebaseAuth, $firebaseArray, $fire
 			password: $scope.password, 			
 		})
 		.then($scope.logIn)
-		.then(function(authData) {
-			$scope.userId = authData.uid;
-		})
-	}
-
-	$scope.signIn = function() {
-		$scope.logIn().then(function(authData){
-			$scope.userId = authData.uid;
-		})
 	}
 
 	$scope.logIn = function() {
@@ -37,6 +28,7 @@ myApp.controller('myCtrl', function($scope, $firebaseAuth, $firebaseArray, $fire
 			password: $scope.password
 		}).then(function(authData) {
 			  console.log("Logged in as:", authData.uid);
+			  $scope.userId = authData.uid
 		}).catch(function(error) {
 			  console.error("Authentication failed:", error);
 		});
