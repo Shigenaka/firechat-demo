@@ -28,7 +28,6 @@ myApp.controller('myCtrl', function($scope, $firebaseAuth, $firebaseArray, $fire
 		}).then(function(authData) {
 			  console.log("Logged in as:", authData.uid);
 			  $scope.userId = authData.uid
-			  location.reload();
 		}).catch(function(error) {
 			  console.error("Authentication failed:", error);
 		});
