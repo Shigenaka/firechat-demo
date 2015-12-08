@@ -9,9 +9,9 @@ myApp.controller('myCtrl', function($scope, $firebaseAuth, $firebaseArray, $fire
 	var authData = $scope.authObj.$getAuth();
 	if(authData) {
 		console.log(authData);
-		var chat = new FirechatUI(ref, document.getElementById('firechat-wrapper'));
-        chat.setUser(authData.uid, authData.uid);
 	}
+	var chat = new FirechatUI(ref, document.getElementById('firechat-wrapper'));
+        chat.setUser(authData.uid, authData.uid);
 
 	$scope.signUp = function() {
 		$scope.authObj.$createUser({
