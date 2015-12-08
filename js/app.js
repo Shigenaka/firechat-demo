@@ -19,20 +19,10 @@ myApp.controller('myCtrl', function($scope, $firebaseAuth, $firebaseArray, $fire
 			email: $scope.email,
 			password: $scope.password, 			
 		})
-
 		.then($scope.logIn)
-
 		.then(function(authData) {
 			$scope.userId = authData.uid;
-			$scope.users[authData.uid] ={
-				handle:$scope.email, 
-			}
-			$scope.users.$save()
 		})
-
-		.catch(function(error) {
-			console.error("Error: ", error);
-		});
 	}
 
 	$scope.signIn = function() {
@@ -42,11 +32,14 @@ myApp.controller('myCtrl', function($scope, $firebaseAuth, $firebaseArray, $fire
 	}
 
 	$scope.logIn = function() {
-		console.log('log in')
 		return $scope.authObj.$authWithPassword({
 			email: $scope.email,
 			password: $scope.password
-		})
+		}).then(function(authData) {
+			  console.log("Logged in as:", authData.uid);
+		}).catch(function(error) {
+			  console.error("Authentication failed:", error);
+		});
 	}
 
 	$scope.logOut = function() {
