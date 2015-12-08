@@ -10,7 +10,7 @@ myApp.controller('myCtrl', function($scope, $firebaseAuth, $firebaseArray, $fire
 	if(authData) {
 		console.log(authData);
 		var chat = new FirechatUI(ref, document.getElementById('firechat-wrapper'));
-        chat.setUser(authData.uid, authData.uid);
+      	chat.setUser(authData.uid, authData.uid);
 	}
 
 	$scope.signUp = function() {
@@ -28,6 +28,8 @@ myApp.controller('myCtrl', function($scope, $firebaseAuth, $firebaseArray, $fire
 		}).then(function(authData) {
 			  console.log("Logged in as:", authData.uid);
 			  $scope.userId = authData.uid
+			  var chat = new FirechatUI(ref, document.getElementById('firechat-wrapper'));
+      			chat.setUser(authData.uid, authData.uid);
 		}).catch(function(error) {
 			  console.error("Authentication failed:", error);
 		});
